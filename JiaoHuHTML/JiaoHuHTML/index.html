@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery
+/jquery-1.4.min.js"></script>
+	</head>
+	<body>
+	
+		<form id="form1" runat="server">
+<input type='file' id="imgInp" />
+<div>
+<img id="blah" src="#" alt="显示您上传的商品图片" />
+</div>  
+</form>
+	</body>
+	<script type="text/javascript">
+        
+        function showAlert(message){
+            alert(message);
+        }
+        
+		function readURL(input) {
+
+   if (input.files && input.files[0]) {
+
+       var reader = new FileReader();
+
+       reader.onload = function (e) {
+
+           $('#blah').attr('src', e.target.result);
+
+       }
+
+       reader.readAsDataURL(input.files[0]);
+
+   }
+
+}
+
+$("#imgInp").change(function(){
+
+   readURL(this);
+
+});
+	</script>
+</html>
